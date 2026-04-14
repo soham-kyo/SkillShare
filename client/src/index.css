@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Premium Zinc & Indigo Palette */
+  --font-body: 'Inter', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+
+  /* Very subtle cool gray background for light mode */
+  --background: 240 5% 98%;
+  --foreground: 240 10% 4%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 4%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 4%;
+
+  /* SkillShare Dark Brown */
+  --primary: 14 80% 27%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Soft Zinc Secondary */
+  --secondary: 240 5% 94%;
+  --secondary-foreground: 240 10% 4%;
+
+  --muted: 240 5% 94%;
+  --muted-foreground: 240 4% 46%;
+
+  /* SkillShare Golden Orange */
+  --accent: 34 92% 50%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 240 6% 90%;
+  --input: 240 6% 90%;
+  --ring: 14 80% 27%;
+
+  --radius: 0.75rem; /* Slightly larger, softer corners */
+}
+
+.dark {
+  /* Deep Rich Zinc Background */
+  --background: 240 10% 4%;
+  --foreground: 0 0% 98%;
+
+  /* Slightly lighter zinc for cards */
+  --card: 240 5% 8%;
+  --card-foreground: 0 0% 98%;
+
+  --popover: 240 5% 8%;
+  --popover-foreground: 0 0% 98%;
+
+  /* Brightened Brown/Orange for dark mode contrast */
+  --primary: 17 80% 60%;
+  --primary-foreground: 240 10% 4%;
+
+  --secondary: 240 4% 16%;
+  --secondary-foreground: 0 0% 98%;
+
+  --muted: 240 4% 16%;
+  --muted-foreground: 240 5% 65%;
+
+  --accent: 34 92% 55%;
+  --accent-foreground: 240 10% 4%;
+
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 240 4% 16%;
+  --input: 240 4% 16%;
+  --ring: 17 80% 60%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass-nav {
+    @apply bg-background/70 backdrop-blur-lg border-b border-border/50 shadow-sm supports-[backdrop-filter]:bg-background/60;
+  }
+  .glass-card {
+    @apply bg-card/50 backdrop-blur-md border border-white/10 dark:border-white/5 shadow-sm;
+  }
+  .transition-custom {
+    @apply transition-all duration-300 ease-out;
+  }
+}
